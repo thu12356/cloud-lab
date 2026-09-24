@@ -102,7 +102,6 @@ function App() {
 
       // Tải lại danh sách
       fetchStudents();
-
     } catch (error) {
       console.error("Lỗi:", error);
       alert(error.message);
@@ -166,7 +165,6 @@ function App() {
 
       // Tải lại danh sách
       fetchStudents();
-
     } catch (error) {
       console.error("Lỗi:", error);
       alert(error.message);
@@ -181,8 +179,9 @@ function App() {
         fontFamily: "Arial",
       }}
     >
+      {/* TIÊU ĐỀ PHIÊN BẢN 2.0 */}
       <h1 style={{ textAlign: "center" }}>
-        {editingId ? "Cập nhật sinh viên" : "Thêm sinh viên"}
+        Quản lý sinh viên - Phiên bản 2.0
       </h1>
 
       {/* =========================

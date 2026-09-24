@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: minhthuu123/cloud-lab-backend:latest
+    container_name: mern-backend-container
+    network_mode: host
+    dns:
+      - 168.63.129.16
+    env_file:
+      - ./server/.env
+    restart: unless-stopped
+
+  frontend:
+    image: minhthuu123/cloud-lab-frontend:2.0
+    container_name: mern-frontend-container
+    ports:
+      - "5173:5173"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - backend
+    restart: unless-stopped
