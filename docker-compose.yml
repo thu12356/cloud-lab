@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./server
+    container_name: mern-backend-container
+    network_mode: host
+    dns:
+      - 168.63.129.16
+    env_file:
+      - ./server/.env
+    restart: unless-stopped
+
+  frontend:
+    build: ./client
+    container_name: mern-frontend-container
+    ports:
+      - "5173:5173"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - backend
+    restart: unless-stopped
