@@ -1,3 +1,4 @@
+javascript
 require("dotenv").config();
 
 const dns = require("dns");
@@ -33,6 +34,11 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// Trang chu kiem tra Backend
+app.get("/", (req, res) => {
+    res.send("Backend Lab 05 is running!");
+});
 
 // Ket noi MongoDB Atlas
 mongoose.connect(process.env.MONGODB_URI)
