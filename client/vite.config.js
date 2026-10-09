@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -11,8 +10,9 @@ export default defineConfig({
 
     proxy: {
       "/api": {
-        target: "http://host.docker.internal:5000",
-        changeOrigin: true
+        target: "https://mern-backend-236167-ddt2.onrender.com",
+        changeOrigin: true,
+        secure: true
       }
     }
   }
